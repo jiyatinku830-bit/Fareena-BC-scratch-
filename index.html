@@ -1,0 +1,34 @@
+<script>
+    // SHIVA: Put the phone numbers of the members who HAVEN'T been allotted a month yet.
+    // I have assigned them ONLY the months that were NOT in your "already taken" list.
+    const memberData = {
+        "9000000001": 6, 
+        "9000000002": 7, 
+        "9000000003": 8,
+        "9000000004": 13, 
+        "9000000005": 14, 
+        "9000000006": 15,
+        "9000000007": 16, 
+        "9000000008": 17, 
+        "9000000009": 20
+    };
+
+    function openApp() {
+        var phone = document.getElementById('mobileInput').value.trim();
+        
+        // This checks if the number is in your new list
+        if (!memberData[phone]) {
+            alert("This number is either already allotted or not in the list. Contact Shiva.");
+            return;
+        }
+
+        document.getElementById('login-form').style.display = 'none';
+        document.getElementById('scratch-container').style.display = 'block';
+        document.getElementById('slotVal').innerText = memberData[phone];
+        document.getElementById('verifiedMsg').innerText = "Verified Member: " + phone;
+
+        setupScratch();
+    }
+    
+    // ... (Keep your setupScratch and canvas logic exactly the same)
+</script>
